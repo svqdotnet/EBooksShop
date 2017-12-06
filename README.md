@@ -1,5 +1,10 @@
 # EBooksShop
 
+## 5th December 2017
+OpenApi session with Pedro J. Molina (@pmolinam)
+No code added!
+And a basic repository restructuration
+
 ## 17th November 2017
 After our first meetup about EF Core 2.0. The code and presentation files have been pushed to our repository. Have fun!!!
 
@@ -8,7 +13,7 @@ A Sample Books Shop model to create and develop an application for demos, sample
 
 
 **This is our data model:**
-![Modelo de datos](/images/datamodel.png)
+![Modelo de datos](/DataModel.png)
 
 Do you have any idea to participate? Join us!
 
