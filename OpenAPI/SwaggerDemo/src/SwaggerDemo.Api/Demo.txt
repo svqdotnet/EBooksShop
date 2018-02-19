@@ -1,0 +1,7 @@
+﻿1) Add Nuget package: NSwag.AspNetCore
+2) Add to Startup.cs: using NSwag.AspNetCore;
+3)
+	app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, opt =>
+	{
+                
+	});

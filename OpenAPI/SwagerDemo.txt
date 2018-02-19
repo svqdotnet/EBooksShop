@@ -1,0 +1,44 @@
+Opción 1:
+---------
+1) Add Nuget package: Swashbuckle.AspNetCore
+2) add to startup.cs: using Swashbuckle.AspNetCore.Swagger;
+3) Modificar: en el fichero generado con NSwag: "xxx.gen.cs": Microsoft.AspNetCore.Mvc.RoutePrefix(...) -> Microsoft.AspNetCore.Mvc.Route(....)
+4) Para la autenticación asegurar que el [Autorize] se encuentra en el fichero "xxx.gen.cs". Al ser una clase parcial, no lo obtiene de la custom.
+5) 
+
+app.UseSwagger().UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Disbursement V1");
+        // c.ConfigureOAuth2("disbursementswaggerui", "", "", "Disbursement Swagger UI");
+    });
+
+4) Opcional:
+            // Add Swagger
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1",
+                    new Info
+                    {
+                        Version = "v1",
+                        Title = "Sample1 API",
+                        Description = "API to expose Sample business",
+                        TermsOfService = "Copyright (c) elGuerre.com. All rights reserved."
+                    }
+                );
+
+        // Set the comments path for the Swagger JSON and UI.
+        var basePath = AppContext.BaseDirectory;
+        var xmlPath = Path.Combine(basePath, "SwaggerDemo.Api.xml"); 
+        c.IncludeXmlComments(xmlPath);
+
+            });
+
+
+
+
+Opción 2:
+---------
+1) Add Nuget package: NSwag.AspNetCore
+2) Add to Startup.cs: using NSwag.AspNetCore;
+3) ...
+
