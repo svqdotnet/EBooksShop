@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerWithAspNetIde
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerDemo.Api", "SwaggerDemo.Api\SwaggerDemo.Api.csproj", "{5F86EABE-668A-4445-9A93-CE36371C21B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{123FFF83-23E9-4201-83C3-AC599E75FC68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F972ED5F-3EA4-4DBC-AAB6-53A00B216ABE} = {123FFF83-23E9-4201-83C3-AC599E75FC68}
+		{CDCE9151-0F7D-4015-851A-661A06B87016} = {123FFF83-23E9-4201-83C3-AC599E75FC68}
 		{CC274876-43AB-42F3-9B70-6F4922059AB5} = {4E59EAE5-9C57-4168-9746-04C9845AB43D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
