@@ -57,7 +57,7 @@
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
-      "output": "src/SwConsole/PetStoreClient.gen.cs"
+      "output": "SwaggerDemo/src/SwConsole/PetStoreClient.gen.cs"
     },
     "swaggerToCSharpController": {
       "controllerBaseClass": "Microsoft.AspNetCore.Mvc.Controller",
@@ -91,7 +91,7 @@
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
-      "output": "src/SwApi/Controllers/PetStoreController.gen.cs"
+      "output": "SwaggerDemo/src/SwaggerDemo.Api/Controllers/PetStoreController.gen.cs"
     }
   }
 }
