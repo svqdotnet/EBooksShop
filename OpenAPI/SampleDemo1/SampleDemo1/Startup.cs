@@ -1,11 +1,25 @@
-Opción 1:
----------
-1) Add Nuget package: Swashbuckle.AspNetCore
-2) add to startup.cs: using Swashbuckle.AspNetCore.Swagger;
-3) Modificar: en el fichero generado con NSwag: "xxx.gen.cs": Microsoft.AspNetCore.Mvc.RoutePrefix(...) -> Microsoft.AspNetCore.Mvc.Route(....)
-4) Para la autenticación asegurar que el [Autorize] se encuentra en el fichero "xxx.gen.cs". Al ser una clase parcial, no lo obtiene de la custom.
-5) Modificar Startup.cs: Incluir en el método ConfigureServices:
+ï»¿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
+namespace SampleDemo1
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
             services.AddSwaggerGen(options =>
             {
                 options.DescribeAllEnumsAsStrings();
@@ -32,15 +46,24 @@ Opción 1:
 
             });
 
-6) Modificar Startup.cs: Incluir en el método configure(...)
+            services.AddMvc();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            // TODO: (2) for Swashbuckle.AspNetCore.Swagger
             app.UseSwagger().UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample Demo Api V1");
             });
 
-Opción 2:
----------
-1) Add Nuget package: NSwag.AspNetCore
-2) Add to Startup.cs: using NSwag.AspNetCore;
-3) ...
-
+            app.UseMvc();
+        }
+    }
+}
