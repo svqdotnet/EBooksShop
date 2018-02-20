@@ -44,3 +44,15 @@ Opción 2:
 2) Add to Startup.cs: using NSwag.AspNetCore;
 3) ...
 
+
+----------------------------
+Publicando en Docker (Azure)
+----------------------------
+
+dotnet restore ../SampleDemo1.sln --configfile ../CI-Nuget.config
+dotnet publish ../SampleDemo1.sln -c Debug -o ./obj/Docker/publish/s
+
+docker build . -t sampledemo1 --no-cache
+docker run -it --entrypoint /bin/bash sampledemo1 
+REM docker run -it --entrypoint /bin/bash swaggerdemoapi.azurecr.io/sampledemo1 
+
